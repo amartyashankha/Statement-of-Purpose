@@ -1,0 +1,87 @@
+\section*{Research}
+
+During my time at MIT, I have conducted research in a number of different topics in Theoretical Computer Science,
+including Sublinear algorithms, local algorithms, computational geometry \& origami theory, and distributed algorithms.
+\todo{remove distributed algo, or mention DDD}
+
+\subsection*{Sublinear Algorithms}
+My first exposure through research was through a graduate course I attended my freshman year titled ''Randomness and Computation''.
+Our instructor was Ronitt Rubinfeld, and being the only undergraduate in a small class, I got to know her quite well.
+I was invited to join in group meetings with her PhD students, who were working on property testing on graphs.
+Having considered $ \mathcal{O}(n) $ to be the gold standard of complexity all my life,
+I was very excited to learn more about sublinear algorithms.
+
+\paragraph{Counting Subgraphs.}
+Our work (published in Algorithmica \cite{stars}) was focused on estimating the number of star subgraphs in a given graph.
+We introduced a new model in graph property testing, that allowed for a random edge to be sampled.
+Most prior reseach had only considered random vertex, and random neighbor queries.
+However, the ability to sample an uniformly random edge is very natural,
+since it is equivalent to sampling a random element from an adjacency list representation of a graph.
+We were able to show that this model is more powerful than the old vertex sampling models,
+by improving the bounds presented in \cite{old_stars}.
+
+\paragraph{Local Access Implementations.}
+More recently, I have started working on a new research project (also under Ronitt's tutelage).
+in the field of \emph{local-access implementations} of huge random objects.
+This is a relatively new area, pioneered in \cite{huge, huge_old}, and further developed in \cite{sparse, reut}.
+This model considers huge random objects such as exponentially sized random graphs.
+Classically, such objects are fully generated, before being studied.
+However, in the context of algorithms with sub-linear query complexity, it seems wasteful to generate the entire random object.
+Local-access implementations aim to provide oracle access to thes random objects,
+without having a large pre-processing overhead.
+%For instance, we can provide access to the adjacency list of a random graph in the form of neighbor queries.
+%In this setting, the oracle can generate portions of the graph \emph{on-the-fly} from the correct distribution,
+%with some overhead (usually $ \mathcal{O}(poly\log n) $ time, space, and random bits).
+
+We have obtained some new and interesting results in this area.
+particularly for undirected random graphs with independent edge probabilities.
+We provide the first implementations of a $\func{random-neighbor}$ query,
+which would allow efficient implementation of random walk based algorithms.
+Our implementation is also the first to support dense graphs,
+and unlike many past results, we can genrate the entire graph without introducing inconsistencies.
+%Whereas most previous results \cite{huge, sparse} have supported a limited number of queries on sparse graphs,
+%our generators can be run to completion without introducing any inconsistencies (similar to \cite{reut}).
+Specifically, we show that our algorithm can be used to efficiently implement Erdos-Renyi graphs, and the Stochastic Block Model.
+We also design generators for graphs in Kleinberg's small world model,
+where edge probabilities depend on a 2-dimensional distance metric.
+
+Currently, I am working on several other classes of random objects.
+In the realm of graph theory, I have been considering implementations of Geometric and Hyperbolic Random Graphs\todo{cite}.
+We also have some partial results for locally generating uniformly random domino tilings,
+\todo{dimer model physics etc \ldots}
+and obtaining uniform samples from Dyck languages.
+
+\subsection*{Computational Geometry}
+
+Over the past year, I have also had the opportunity to work on several problems 
+in origami and computational geometry with Erik Demaine.
+
+\paragraph{Origami.}
+One of the results from this class was a result on common unfoldings.
+Our paper\cite{common}, published in CCCG, outlines the construction of a development,
+that can fold into twelve different convex polyhedra (the list is now slightly longer),
+in five different combinatorial classes.
+Most of the past results in the field \cite{box2, box2.5, box3, cube_tet, jz}
+only result in a small number of unfoldings.
+Additionally, our construction presents the first non-trivial \emph{uncountable family} of unfoldings.
+
+Another direction I worked on was concerning the origami construction of extruded surfaces.
+Here, I developed a construction for arbitrary extruded orthogonal graphs,
+with $ \mathcal{O}(2+\varepsilon) $ optimal paper usage, under some suitable assumptions.
+We also formulated a technique for constructing arbitrary extruded polygons,
+where convex polygons can be made with $ \mathcal{O}(1+1/n) $ optimal paper usage.
+\todo[inline]{Compare to past results}
+
+\paragraph{Auxetic Linkages.}
+One of my ongoing projects is on the design of 2-dimensional auxetic linkages.
+Specifically, I am interested in inhomogeneous bistable auxetic linkages.
+Bistable auxetic linkages that have exactly two possible configurations,
+and it is not possible to continuously deform them into each other.
+Generally, the final state of the linkage will have a larger area.
+
+Existing literature focuses on periodic linkages that have homogenous expansion properties.
+I am investigating an aperiodic linkage that has varying amounts of expansion in different locations.
+This implies that the final state is non-Euclidean, and I have constructed some physical models,
+that start out from a flat sheet, and unfold into a 3-dimensional surface.
+\todo[inline]{Pictures}
+
